@@ -119,8 +119,7 @@ elif seleccion_envio == "Envío 2":
             res = "B9" if tanque in ["R", "U"] else "B9-B10"
         st.success(f">> Teléfono a emplear: {res}")
 
-   
-     # --- OPCIÓN 4: CLARIFICAR ---
+     # --- 4: CLARIFICAR ---
         elif opcion == "4":
             print("\n--- CONFIGURACIÓN PARA CLARIFICAR ---")
             # Selección de Bomba
