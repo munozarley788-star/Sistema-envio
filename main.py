@@ -16,35 +16,11 @@ if seleccion_envio == "Salir":
 
 elif seleccion_envio == "Envío 1":
     st.header("📍 Selección de destino")
-    
-    opcion = st.selectbox(
-        "¿Hacia dónde vas a enviar?", 
-        ["Seleccionar...", "1. Planta (1 al 5)", "2. FMM1", "3. FMM2", "4. Clarificar", 
-         "5. Marmita", "6. Decantar", "7. Pasteurizar", "8. Ultrapasteurizador", 
-         "9. Bomba reproceso / Trasiego", "10. Envío a PC10", "11. CIP Fundidores", "12. CIP UHT"],
-        key="e1_destino_principal"
-    )
-
-    # --- DICCIONARIOS DE RESPALDO PARA CONTROL DE ERRORES ---
-    dicc_cip_fundidores = {"1": "2", "2": "3", "3": "4", "4": "3", "5": "2"}
-    dicc_cip_uht = {"CLARIFICAR": "14", "UHT": "15", "PASTEURIZADOR": "13", "FMM2": "16", "MARMITA": "16", "FMM1": "17", "DECANTAR": "17"}
-
-    # --- FUNCIÓN DE MATRIZ DE SUCCIÓN ---
-    def obtener_succion_e1(bomba, tanque):
-        tanque_limpio = str(tanque).strip().upper()
-        if bomba == "1":
-            return "B1" if tanque_limpio in ["B", "F", "L", "A"] else ("19" if tanque_limpio == "K" else ("20" if tanque_limpio == "LIBRE 1" else ("21" if tanque_limpio == "D" else "Manguera")))
-        elif bomba == "2":
-            return "B2" if tanque_limpio in ["A", "K", "LIBRE 1", "D"] else ("19" if tanque_limpio in ["L", "LIBRE 2"] else ("20" if tanque_limpio in ["F", "CIP"] else ("21" if tanque_limpio in ["B", "C"] else "Manguera")))
-        elif bomba == "3":
-            return "B3" if tanque_limpio in ["D", "LIBRE 2", "CIP", "C"] else ("19" if tanque_limpio == "LIBRE 1" else ("20" if tanque_limpio in ["K", "N"] else ("21" if tanque_limpio in ["E", "A"] else "Manguera")))
-        elif bomba == "4":
-            return "B4" if tanque_limpio in ["C", "N", "E"] else ("19" if tanque_limpio in ["CIP", "I"] else ("20" if tanque_limpio in ["LIBRE 2", "O"] else ("21" if tanque_limpio in ["D", "M"] else "Manguera")))
-        elif bomba == "5":
-            return "B5" if tanque_limpio in ["E", "M", "O", "I"] else ("19" if tanque_limpio in ["N", "P"] else ("20" if tanque_limpio == "Q" else ("21" if tanque_limpio in ["H", "C"] else "Manguera")))
-        elif bomba == "6":
-            return "B6" if tanque_limpio in ["P", "M", "Q", "H"] else ("19" if tanque_limpio == "O" else ("20" if tanque_limpio == "I" else ("21" if tanque_limpio == "E" else "Manguera")))
-        return "Manguera / No Detectado"
+    opcion = st.selectbox("¿Hacia dónde vas a enviar?", 
+                          ["Seleccionar...", "1. Planta (1 al 5)", "2. FMM1", "3. FMM2", "4. Clarificar", 
+                           "5. Marmita", "6. Decantar", "7. Pasteurizar", "8. Ultrapasteurizador", 
+                           "9. Bomba reproceso / Trasiego", "10. Envío a PC10", "11. CIP Fundidores", "12. CIP UHT"],
+                          key="e1_destino_principal")
 
     # --- 1. PLANTAS ---
     if "1. Planta" in opcion:
@@ -54,34 +30,113 @@ elif seleccion_envio == "Envío 1":
         if p == "1":
             bomba = st.radio("Bomba:", ["1", "2", "3"], horizontal=True, key="e1_bomba_p1")
             pc13_tel = "PC13: Teléfono 18" if bomba == "3" else "PC13: Teléfono 1"
-            tanque = st.selectbox("Tanque:", ["A", "B", "C", "D", "E", "F", "K", "L", "N", "Libre 1", "Libre 2", "CIP"], key="e1_tanque_p1")
-            res = obtener_succion_e1(bomba, tanque)
+            tanque = st.selectbox("Tanque:", ["A", "B", "C", "D", "E", "F", "K", "L", "N", "Libre 1", "Libre 2", "CIP"], key="e1_tanque_p1").upper()
+            
+            if bomba == "1" and tanque in ["B", "F", "L", "A"]: res = "B1"
+            elif bomba == "1" and tanque == "K": res = "19"
+            elif bomba == "1" and tanque == "LIBRE 1": res = "20"
+            elif bomba == "1" and tanque == "D": res = "21"
+            elif bomba == "2" and tanque in ["A", "K", "LIBRE 1", "D"]: res = "B2"
+            elif bomba == "2" and tanque in ["L", "LIBRE 2"]: res = "19"
+            elif bomba == "2" and tanque in ["F", "CIP"]: res = "20"
+            elif bomba == "2" and tanque in ["B", "C"]: res = "21"
+            elif bomba == "3" and tanque in ["D", "LIBRE 2", "CIP", "C"]: res = "B3"
+            elif bomba == "3" and tanque == "LIBRE 1": res = "19"
+            elif bomba == "3" and tanque in ["K", "N"]: res = "20"
+            elif bomba == "3" and tanque in ["E", "A"]: res = "21"
+            else: res = "Manguera"
             st.success(f">> Teléfono a emplear: {res} ({pc13_tel})")
 
         elif p == "2":
             bomba = st.radio("Bomba:", ["1", "2", "3", "4"], horizontal=True, key="e1_bomba_p2")
             pc13_tel = "PC13: Teléfono 18" if bomba in ["1", "4"] else "PC13: Teléfono 1"
-            tanque = st.selectbox("Tanque:", ["A", "B", "C", "D", "E", "F", "I", "K", "L", "M", "N", "O", "Libre 1", "Libre 2", "CIP"], key="e1_tanque_p2")
-            res = obtener_succion_e1(bomba, tanque)
+            tanque = st.selectbox("Tanque:", ["A", "B", "C", "D", "E", "F", "I", "K", "L", "M", "N", "O", "Libre 1", "Libre 2", "CIP"], key="e1_tanque_p2").upper()
+            
+            if bomba == "1" and tanque in ["B", "F", "L", "A"]: res = "B1"
+            elif bomba == "1" and tanque == "K": res = "19"
+            elif bomba == "1" and tanque == "LIBRE 1": res = "20"
+            elif bomba == "1" and tanque == "D": res = "21"
+            elif bomba == "2" and tanque in ["A", "K", "LIBRE 1", "D"]: res = "B2"
+            elif bomba == "2" and tanque in ["L", "LIBRE 2"]: res = "19"
+            elif bomba == "2" and tanque in ["F", "CIP"]: res = "20"
+            elif bomba == "2" and tanque in ["B", "C"]: res = "21"
+            elif bomba == "3" and tanque in ["D", "LIBRE 2", "CIP", "C"]: res = "B3"
+            elif bomba == "3" and tanque == "LIBRE 1": res = "19"
+            elif bomba == "3" and tanque in ["K", "N"]: res = "20"
+            elif bomba == "3" and tanque in ["E", "A"]: res = "21"
+            elif bomba == "4" and tanque in ["C", "N", "E"]: res = "B4"
+            elif bomba == "4" and tanque in ["CIP", "I"]: res = "19"
+            elif bomba == "4" and tanque in ["LIBRE 2", "O"]: res = "20"
+            elif bomba == "4" and tanque in ["D", "M"]: res = "21"
+            else: res = "Manguera"
             st.success(f">> Teléfono a emplear: {res} ({pc13_tel})")
 
-        elif p in ["3", "4"]:
-            bomba = st.radio("Bomba:", ["2", "3", "4", "5"], horizontal=True, key=f"e1_bomba_p{p}")
-            if p == "3":
-                pc13_tel = "PC13: Teléfono 18" if bomba in ["2", "5"] else "PC13: Teléfono 1"
-                t_list = ["A", "B", "C", "D", "E", "F", "H", "I", "K", "L", "M", "N", "O", "P", "Q", "Libre 1", "Libre 2", "CIP"]
-            else:
-                pc13_tel = "PC13: Teléfono 18" if bomba in ["3", "6"] else "PC13: Teléfono 1"
-                t_list = ["A", "C", "D", "E", "H", "I", "K", "M", "N", "O", "P", "Q", "Libre 1", "Libre 2", "CIP"]
-            tanque = st.selectbox("Tanque:", t_list, key=f"e1_tanque_p{p}")
-            res = obtener_succion_e1(bomba, tanque)
+        elif p == "3":
+            bomba = st.radio("Bomba:", ["2", "3", "4", "5"], horizontal=True, key="e1_bomba_p3")
+            pc13_tel = "PC13: Teléfono 18" if bomba in ["2", "5"] else "PC13: Teléfono 1"
+            tanque = st.selectbox("Tanque:", ["A", "B", "C", "D", "E", "F", "H", "I", "K", "L", "M", "N", "O", "P", "Q", "Libre 1", "Libre 2", "CIP"], key="e1_tanque_p3").upper()
+            
+            if bomba == "2" and tanque in ["A", "K", "LIBRE 1", "D"]: res = "B2"
+            elif bomba == "2" and tanque in ["L", "LIBRE 2"]: res = "19"
+            elif bomba == "2" and tanque in ["F", "CIP"]: res = "20"
+            elif bomba == "2" and tanque in ["B", "C"]: res = "21"
+            elif bomba == "3" and tanque in ["D", "LIBRE 2", "CIP", "C"]: res = "B3"
+            elif bomba == "3" and tanque == "LIBRE 1": res = "19"
+            elif bomba == "3" and tanque in ["K", "N"]: res = "20"
+            elif bomba == "3" and tanque in ["E", "A"]: res = "21"
+            elif bomba == "4" and tanque in ["C", "N", "E"]: res = "B4"
+            elif bomba == "4" and tanque in ["CIP", "I"]: res = "19"
+            elif bomba == "4" and tanque in ["LIBRE 2", "O"]: res = "20"
+            elif bomba == "4" and tanque in ["D", "M"]: res = "21"
+            elif bomba == "5" and tanque in ["E", "M", "O", "I"]: res = "B5"
+            elif bomba == "5" and tanque in ["N", "P"]: res = "19"
+            elif bomba == "5" and tanque == "Q": res = "20"
+            elif bomba == "5" and tanque in ["H", "C"]: res = "21"
+            else: res = "Manguera"
+            st.success(f">> Teléfono a emplear: {res} ({pc13_tel})")
+
+        elif p == "4":
+            bomba = st.radio("Bomba:", ["3", "4", "5", "6"], horizontal=True, key="e1_bomba_p4")
+            pc13_tel = "PC13: Teléfono 18" if bomba in ["3", "6"] else "PC13: Teléfono 1"
+            tanque = st.selectbox("Tanque:", ["A", "C", "D", "E", "H", "I", "K", "M", "N", "O", "P", "Q", "Libre 1", "Libre 2", "CIP"], key="e1_tanque_p4").upper()
+            
+            if bomba == "3" and tanque in ["D", "LIBRE 2", "CIP", "C"]: res = "B3"
+            elif bomba == "3" and tanque == "LIBRE 1": res = "19"
+            elif bomba == "3" and tanque in ["K", "N"]: res = "20"
+            elif bomba == "3" and tanque in ["E", "A"]: res = "21"
+            elif bomba == "4" and tanque in ["C", "N", "E"]: res = "B4"
+            elif bomba == "4" and tanque in ["CIP", "I"]: res = "19"
+            elif bomba == "4" and tanque in ["LIBRE 2", "O"]: res = "20"
+            elif bomba == "4" and tanque in ["D", "M"]: res = "21"
+            elif bomba == "5" and tanque in ["E", "M", "O", "I"]: res = "B5"
+            elif bomba == "5" and tanque in ["N", "P"]: res = "19"
+            elif bomba == "5" and tanque == "Q": res = "20"
+            elif bomba == "5" and tanque in ["H", "C"]: res = "21"
+            elif bomba == "6" and tanque in ["P", "M", "Q", "H"]: res = "B6"
+            elif bomba == "6" and tanque == "O": res = "19"
+            elif bomba == "6" and tanque == "I": res = "20"
+            elif bomba == "6" and tanque == "E": res = "21"
+            else: res = "Manguera"
             st.success(f">> Teléfono a emplear: {res} ({pc13_tel})")
 
         elif p == "5":
             bomba = st.radio("Bomba:", ["4", "5", "6"], horizontal=True, key="e1_bomba_p5")
             pc13_tel = "PC13: Teléfono 18" if bomba == "4" else "PC13: Teléfono 1"
-            tanque = st.selectbox("Tanque:", ["C", "D", "E", "H", "I", "M", "N", "O", "P", "Q", "Libre 2", "CIP"], key="e1_tanque_p5")
-            res = obtener_succion_e1(bomba, tanque)
+            tanque = st.selectbox("Tanque:", ["C", "D", "E", "H", "I", "M", "N", "O", "P", "Q", "Libre 2", "CIP"], key="e1_tanque_p5").upper()
+            
+            if bomba == "4" and tanque in ["C", "N", "E"]: res = "B4"
+            elif bomba == "4" and tanque in ["CIP", "I"]: res = "19"
+            elif bomba == "4" and tanque in ["LIBRE 2", "O"]: res = "20"
+            elif bomba == "4" and tanque in ["D", "M"]: res = "21"
+            elif bomba == "5" and tanque in ["E", "M", "O", "I"]: res = "B5"
+            elif bomba == "5" and tanque in ["N", "P"]: res = "19"
+            elif bomba == "5" and tanque == "Q": res = "20"
+            elif bomba == "5" and tanque in ["H", "C"]: res = "21"
+            elif bomba == "6" and tanque in ["P", "M", "Q", "H"]: res = "B6"
+            elif bomba == "6" and tanque == "O": res = "19"
+            elif bomba == "6" and tanque == "I": res = "20"
+            elif bomba == "6" and tanque == "E": res = "21"
+            else: res = "Manguera"
             st.success(f">> Teléfono a emplear: {res} ({pc13_tel})")
 
     # --- 2. FMM1 ---
@@ -89,8 +144,21 @@ elif seleccion_envio == "Envío 1":
         st.subheader("--- Configuración FMM1 ---")
         bomba = st.radio("Bomba:", ["1", "2", "3"], horizontal=True, key="e1_bomba_fmm1")
         pc13_tel = "PC13: Teléfono 18" if bomba == "3" else "PC13: Teléfono 1"
-        tanque = st.selectbox("Tanque:", ["A", "B", "C", "D", "E", "F", "K", "L", "N", "Libre 1", "Libre 2", "CIP"], key="e1_tanque_fmm1")
-        res = obtener_succion_e1(bomba, tanque)
+        tanque = st.selectbox("Tanque:", ["A", "B", "C", "D", "E", "F", "K", "L", "N", "Libre 1", "Libre 2", "CIP"], key="e1_tanque_fmm1").upper()
+        
+        if bomba == "1" and tanque in ["B", "F", "L", "A"]: res = "B1"
+        elif bomba == "1" and tanque == "K": res = "19"
+        elif bomba == "1" and tanque == "LIBRE 1": res = "20"
+        elif bomba == "1" and tanque == "D": res = "21"
+        elif bomba == "2" and tanque in ["A", "K", "LIBRE 1", "D"]: res = "B2"
+        elif bomba == "2" and tanque in ["L", "LIBRE 2"]: res = "19"
+        elif bomba == "2" and tanque in ["F", "CIP"]: res = "20"
+        elif bomba == "2" and tanque in ["B", "C"]: res = "21"
+        elif bomba == "3" and tanque in ["D", "LIBRE 2", "CIP", "C"]: res = "B3"
+        elif bomba == "3" and tanque == "LIBRE 1": res = "19"
+        elif bomba == "3" and tanque in ["K", "N"]: res = "20"
+        elif bomba == "3" and tanque in ["E", "A"]: res = "21"
+        else: res = "Manguera"
         st.success(f">> Teléfono a emplear: {res} ({pc13_tel})")
 
     # --- 3. FMM2 ---
@@ -98,8 +166,25 @@ elif seleccion_envio == "Envío 1":
         st.subheader("--- Configuración FMM2 ---")
         bomba = st.radio("Bomba:", ["1", "2", "3", "4"], horizontal=True, key="e1_bomba_fmm2")
         pc13_tel = "PC13: Teléfono 18" if bomba in ["1", "4"] else "PC13: Teléfono 1"
-        tanque = st.selectbox("Tanque:", ["A", "B", "C", "D", "E", "F", "I", "K", "L", "M", "N", "O", "Libre 1", "Libre 2", "CIP"], key="e1_tanque_fmm2")
-        res = obtener_succion_e1(bomba, tanque)
+        tanque = st.selectbox("Tanque:", ["A", "B", "C", "D", "E", "F", "I", "K", "L", "M", "N", "O", "Libre 1", "Libre 2", "CIP"], key="e1_tanque_fmm2").upper()
+        
+        if bomba == "1" and tanque in ["B", "F", "L", "A"]: res = "B1"
+        elif bomba == "1" and tanque == "K": res = "19"
+        elif bomba == "1" and tanque == "LIBRE 1": res = "20"
+        elif bomba == "1" and tanque == "D": res = "21"
+        elif bomba == "2" and tanque in ["A", "K", "LIBRE 1", "D"]: res = "B2"
+        elif bomba == "2" and tanque in ["L", "LIBRE 2"]: res = "19"
+        elif bomba == "2" and tanque in ["F", "CIP"]: res = "20"
+        elif bomba == "2" and tanque in ["B", "C"]: res = "21"
+        elif bomba == "3" and tanque in ["D", "LIBRE 2", "CIP", "C"]: res = "B3"
+        elif bomba == "3" and tanque == "LIBRE 1": res = "19"
+        elif bomba == "3" and tanque in ["K", "N"]: res = "20"
+        elif bomba == "3" and tanque in ["E", "A"]: res = "21"
+        elif bomba == "4" and tanque in ["C", "N", "E"]: res = "B4"
+        elif bomba == "4" and tanque in ["CIP", "I"]: res = "19"
+        elif bomba == "4" and tanque in ["LIBRE 2", "O"]: res = "20"
+        elif bomba == "4" and tanque in ["D", "M"]: res = "21"
+        else: res = "Manguera"
         st.success(f">> Teléfono a emplear: {res} ({pc13_tel})")
 
     # --- 4. CLARIFICAR ---
@@ -107,8 +192,25 @@ elif seleccion_envio == "Envío 1":
         st.subheader("--- Configuración Clarificar ---")
         bomba = st.radio("Bomba:", ["2", "3", "4", "5"], horizontal=True, key="e1_bomba_clarif")
         pc13_tel = "PC13: Teléfono 18" if bomba in ["2", "5"] else "PC13: Teléfono 1"
-        tanque = st.selectbox("Tanque:", ["A", "B", "C", "D", "E", "F", "H", "I", "K", "L", "M", "N", "O", "P", "Q", "Libre 1", "Libre 2", "CIP"], key="e1_tanque_clarif")
-        res = obtener_succion_e1(bomba, tanque)
+        tanque = st.selectbox("Tanque:", ["A", "B", "C", "D", "E", "F", "H", "I", "K", "L", "M", "N", "O", "P", "Q", "Libre 1", "Libre 2", "CIP"], key="e1_tanque_clarif").upper()
+        
+        if bomba == "2" and tanque in ["A", "K", "LIBRE 1", "D"]: res = "B2"
+        elif bomba == "2" and tanque in ["L", "LIBRE 2"]: res = "19"
+        elif bomba == "2" and tanque in ["F", "CIP"]: res = "20"
+        elif bomba == "2" and tanque in ["B", "C"]: res = "21"
+        elif bomba == "3" and tanque in ["D", "LIBRE 2", "CIP", "C"]: res = "B3"
+        elif bomba == "3" and tanque == "LIBRE 1": res = "19"
+        elif bomba == "3" and tanque in ["K", "N"]: res = "20"
+        elif bomba == "3" and tanque in ["E", "A"]: res = "21"
+        elif bomba == "4" and tanque in ["C", "N", "E"]: res = "B4"
+        elif bomba == "4" and tanque in ["CIP", "I"]: res = "19"
+        elif bomba == "4" and tanque in ["LIBRE 2", "O"]: res = "20"
+        elif bomba == "4" and tanque in ["D", "M"]: res = "21"
+        elif bomba == "5" and tanque in ["E", "M", "O", "I"]: res = "B5"
+        elif bomba == "5" and tanque in ["N", "P"]: res = "19"
+        elif bomba == "5" and tanque == "Q": res = "20"
+        elif bomba == "5" and tanque in ["H", "C"]: res = "21"
+        else: res = "Manguera"
         st.success(f">> Teléfono a emplear: {res} ({pc13_tel})")
 
     # --- 5. MARMITA ---
@@ -116,8 +218,25 @@ elif seleccion_envio == "Envío 1":
         st.subheader("--- Configuración Marmita ---")
         bomba = st.radio("Bomba:", ["3", "4", "5", "6"], horizontal=True, key="e1_bomba_marm")
         pc13_tel = "PC13: Teléfono 18" if bomba in ["3", "6"] else "PC13: Teléfono 1"
-        tanque = st.selectbox("Tanque:", ["A", "C", "D", "E", "H", "I", "K", "M", "N", "O", "P", "Q", "Libre 1", "Libre 2", "CIP"], key="e1_tanque_marm")
-        res = obtener_succion_e1(bomba, tanque)
+        tanque = st.selectbox("Tanque:", ["A", "C", "D", "E", "H", "I", "K", "M", "N", "O", "P", "Q", "Libre 1", "Libre 2", "CIP"], key="e1_tanque_marm").upper()
+        
+        if bomba == "3" and tanque in ["D", "LIBRE 2", "CIP", "C"]: res = "B3"
+        elif bomba == "3" and tanque == "LIBRE 1": res = "19"
+        elif bomba == "3" and tanque in ["K", "N"]: res = "20"
+        elif bomba == "3" and tanque in ["E", "A"]: res = "21"
+        elif bomba == "4" and tanque in ["C", "N", "E"]: res = "B4"
+        elif bomba == "4" and tanque in ["CIP", "I"]: res = "19"
+        elif bomba == "4" and tanque in ["LIBRE 2", "O"]: res = "20"
+        elif bomba == "4" and tanque in ["D", "M"]: res = "21"
+        elif bomba == "5" and tanque in ["E", "M", "O", "I"]: res = "B5"
+        elif bomba == "5" and tanque in ["N", "P"]: res = "19"
+        elif bomba == "5" and tanque == "Q": res = "20"
+        elif bomba == "5" and tanque in ["H", "C"]: res = "21"
+        elif bomba == "6" and tanque in ["P", "M", "Q", "H"]: res = "B6"
+        elif bomba == "6" and tanque == "O": res = "19"
+        elif bomba == "6" and tanque == "I": res = "20"
+        elif bomba == "6" and tanque == "E": res = "21"
+        else: res = "Manguera"
         st.success(f">> Teléfono a emplear: {res} ({pc13_tel})")
 
     # --- 6. DECANTAR ---
@@ -127,8 +246,21 @@ elif seleccion_envio == "Envío 1":
         if bomba == "4": pc13_tel = "PC13: Teléfono 18"
         elif bomba == "5": pc13_tel = "PC13: Teléfono 1"
         elif bomba == "6": pc13_tel = "PC13: Teléfono 11"
-        tanque = st.selectbox("Tanque:", ["C", "D", "E", "H", "I", "M", "N", "O", "P", "Q", "Libre 2", "CIP"], key="e1_tanque_decan")
-        res = obtener_succion_e1(bomba, tanque)
+        tanque = st.selectbox("Tanque:", ["C", "D", "E", "H", "I", "M", "N", "O", "P", "Q", "Libre 2", "CIP"], key="e1_tanque_decan").upper()
+        
+        if bomba == "4" and tanque in ["C", "N", "E"]: res = "B4"
+        elif bomba == "4" and tanque in ["CIP", "I"]: res = "19"
+        elif bomba == "4" and tanque in ["LIBRE 2", "O"]: res = "20"
+        elif bomba == "4" and tanque in ["D", "M"]: res = "21"
+        elif bomba == "5" and tanque in ["E", "M", "O", "I"]: res = "B5"
+        elif bomba == "5" and tanque in ["N", "P"]: res = "19"
+        elif bomba == "5" and tanque == "Q": res = "20"
+        elif bomba == "5" and tanque in ["H", "C"]: res = "21"
+        elif bomba == "6" and tanque in ["P", "M", "Q", "H"]: res = "B6"
+        elif bomba == "6" and tanque == "O": res = "19"
+        elif bomba == "6" and tanque == "I": res = "20"
+        elif bomba == "6" and tanque == "E": res = "21"
+        else: res = "Manguera"
         st.success(f">> Teléfono a emplear: {res} ({pc13_tel})")
 
     # --- 7. PASTEURIZAR ---
@@ -136,8 +268,33 @@ elif seleccion_envio == "Envío 1":
         st.subheader("--- Configuración Pasteurizar ---")
         bomba = st.radio("Bomba:", ["1", "2", "3", "4", "5", "6"], horizontal=True, key="e1_bomba_past")
         pc13_tel = "PC13: Teléfono 5" if bomba in ["1", "6"] else ("PC13: Teléfono 6" if bomba in ["2", "5"] else "PC13: Teléfono 7")
-        tanque = st.selectbox("Tanque:", ["A", "B", "C", "D", "E", "F", "H", "I", "K", "L", "M", "N", "O", "P", "Q", "Libre 1", "Libre 2", "CIP"], key="e1_tanque_past")
-        res = obtener_succion_e1(bomba, tanque)
+        tanque = st.selectbox("Tanque:", ["A", "B", "C", "D", "E", "F", "H", "I", "K", "L", "M", "N", "O", "P", "Q", "Libre 1", "Libre 2", "CIP"], key="e1_tanque_past").upper()
+        
+        if bomba == "1" and tanque in ["B", "F", "L", "A"]: res = "B1"
+        elif bomba == "1" and tanque == "K": res = "19"
+        elif bomba == "1" and tanque == "LIBRE 1": res = "20"
+        elif bomba == "1" and tanque == "D": res = "21"
+        elif bomba == "2" and tanque in ["A", "K", "LIBRE 1", "D"]: res = "B2"
+        elif bomba == "2" and tanque in ["L", "LIBRE 2"]: res = "19"
+        elif bomba == "2" and tanque in ["F", "CIP"]: res = "20"
+        elif bomba == "2" and tanque in ["B", "C"]: res = "21"
+        elif bomba == "3" and tanque in ["D", "LIBRE 2", "CIP", "C"]: res = "B3"
+        elif bomba == "3" and tanque == "LIBRE 1": res = "19"
+        elif bomba == "3" and tanque in ["K", "N"]: res = "20"
+        elif bomba == "3" and tanque in ["E", "A"]: res = "21"
+        elif bomba == "4" and tanque in ["C", "N", "E"]: res = "B4"
+        elif bomba == "4" and tanque in ["CIP", "I"]: res = "19"
+        elif bomba == "4" and tanque in ["LIBRE 2", "O"]: res = "20"
+        elif bomba == "4" and tanque in ["D", "M"]: res = "21"
+        elif bomba == "5" and tanque in ["E", "M", "O", "I"]: res = "B5"
+        elif bomba == "5" and tanque in ["N", "P"]: res = "19"
+        elif bomba == "5" and tanque == "Q": res = "20"
+        elif bomba == "5" and tanque in ["H", "C"]: res = "21"
+        elif bomba == "6" and tanque in ["P", "M", "Q", "H"]: res = "B6"
+        elif bomba == "6" and tanque == "O": res = "19"
+        elif bomba == "6" and tanque == "I": res = "20"
+        elif bomba == "6" and tanque == "E": res = "21"
+        else: res = "Manguera"
         st.success(f">> Teléfono a emplear: {res} ({pc13_tel})")
 
     # --- 8. ULTRAPASTEURIZADOR ---
@@ -145,19 +302,43 @@ elif seleccion_envio == "Envío 1":
         st.subheader("--- Configuración Ultra pasteurizador ---")
         bomba = st.radio("Bomba:", ["1", "2", "3", "4", "5", "6"], horizontal=True, key="e1_bomba_ultra")
         pc13_tel = "PC13: Teléfono 10" if bomba in ["1", "6"] else ("PC13: Teléfono 9" if bomba in ["2", "5"] else "PC13: Teléfono 8")
-        tanque = st.selectbox("Tanque:", ["A", "B", "C", "D", "E", "F", "H", "I", "K", "L", "M", "N", "O", "P", "Q", "Libre 1", "Libre 2", "CIP"], key="e1_tanque_ultra")
-        res = obtener_succion_e1(bomba, tanque)
+        tanque = st.selectbox("Tanque:", ["A", "B", "C", "D", "E", "F", "H", "I", "K", "L", "M", "N", "O", "P", "Q", "Libre 1", "Libre 2", "CIP"], key="e1_tanque_ultra").upper()
+        
+        if bomba == "1" and tanque in ["B", "F", "L", "A"]: res = "B1"
+        elif bomba == "1" and tanque == "K": res = "19"
+        elif bomba == "1" and tanque == "LIBRE 1": res = "20"
+        elif bomba == "1" and tanque == "D": res = "21"
+        elif bomba == "2" and tanque in ["A", "K", "LIBRE 1", "D"]: res = "B2"
+        elif bomba == "2" and tanque in ["L", "LIBRE 2"]: res = "19"
+        elif bomba == "2" and tanque in ["F", "CIP"]: res = "20"
+        elif bomba == "2" and tanque in ["B", "C"]: res = "21"
+        elif bomba == "3" and tanque in ["D", "LIBRE 2", "CIP", "C"]: res = "B3"
+        elif bomba == "3" and tanque == "LIBRE 1": res = "19"
+        elif bomba == "3" and tanque in ["K", "N"]: res = "20"
+        elif bomba == "3" and tanque in ["E", "A"]: res = "21"
+        elif bomba == "4" and tanque in ["C", "N", "E"]: res = "B4"
+        elif bomba == "4" and tanque in ["CIP", "I"]: res = "19"
+        elif bomba == "4" and tanque in ["LIBRE 2", "O"]: res = "20"
+        elif bomba == "4" and tanque in ["D", "M"]: res = "21"
+        elif bomba == "5" and tanque in ["E", "M", "O", "I"]: res = "B5"
+        elif bomba == "5" and tanque in ["N", "P"]: res = "19"
+        elif bomba == "5" and tanque == "Q": res = "20"
+        elif bomba == "5" and tanque in ["H", "C"]: res = "21"
+        elif bomba == "6" and tanque in ["P", "M", "Q", "H"]: res = "B6"
+        elif bomba == "6" and tanque == "O": res = "19"
+        elif bomba == "6" and tanque == "I": res = "20"
+        elif bomba == "6" and tanque == "E": res = "21"
+        else: res = "Manguera"
         st.success(f">> Teléfono a emplear: {res} ({pc13_tel})")
 
     # --- 9. BOMBA REPROCESO / TRASIEGO ---
     elif "9. Bomba reproceso / Trasiego" in opcion:
         st.subheader("--- Configuración Reproceso / Trasiego ---")
-        tanque = st.selectbox("Tanque de Origen:", ["C", "N", "D", "E", "Otros tanques (Manguera)"], key="e1_tanque_reproc")
-        tanque_clean = tanque.strip().upper()
+        tanque = st.selectbox("Tanque de Origen:", ["C", "N", "D", "E", "Otros tanques (Manguera)"], key="e1_tanque_reproc").strip().upper()
         
-        if tanque_clean in ["C", "N"]: succ_tel = "B1"
-        elif tanque_clean == "D": succ_tel = "19"
-        elif tanque_clean == "E": succ_tel = "20"
+        if tanque in ["C", "N"]: succ_tel = "B1"
+        elif tanque == "D": succ_tel = "19"
+        elif tanque == "E": succ_tel = "20"
         else: succ_tel = "Manguera"
         
         destino_pc13 = st.radio("Destino desde PC13:", ["Trasiego", "Marmita"], horizontal=True, key="e1_radio_pc13")
@@ -169,8 +350,33 @@ elif seleccion_envio == "Envío 1":
         st.subheader("--- Configuración Envío a PC10 ---")
         bomba = st.radio("Bomba:", ["1", "2", "3", "4", "5", "6"], horizontal=True, key="e1_bomba_pc10")
         pc10_tel = "PC10: Teléfono 5" if bomba in ["1", "6"] else ("PC10: Teléfono 6" if bomba in ["2", "5"] else "PC10: Teléfono 7")
-        tanque = st.selectbox("Tanque:", ["A", "B", "C", "D", "E", "F", "H", "I", "K", "L", "M", "N", "O", "P", "Q", "Libre 1", "Libre 2", "CIP"], key="e1_tanque_pc10")
-        res = obtener_succion_e1(bomba, tanque)
+        tanque = st.selectbox("Tanque:", ["A", "B", "C", "D", "E", "F", "H", "I", "K", "L", "M", "N", "O", "P", "Q", "Libre 1", "Libre 2", "CIP"], key="e1_tanque_pc10").upper()
+        
+        if bomba == "1" and tanque in ["B", "F", "L", "A"]: res = "B1"
+        elif bomba == "1" and tanque == "K": res = "19"
+        elif bomba == "1" and tanque == "LIBRE 1": res = "20"
+        elif bomba == "1" and tanque == "D": res = "21"
+        elif bomba == "2" and tanque in ["A", "K", "LIBRE 1", "D"]: res = "B2"
+        elif bomba == "2" and tanque in ["L", "LIBRE 2"]: res = "19"
+        elif bomba == "2" and tanque in ["F", "CIP"]: res = "20"
+        elif bomba == "2" and tanque in ["B", "C"]: res = "21"
+        elif bomba == "3" and tanque in ["D", "LIBRE 2", "CIP", "C"]: res = "B3"
+        elif bomba == "3" and tanque == "LIBRE 1": res = "19"
+        elif bomba == "3" and tanque in ["K", "N"]: res = "20"
+        elif bomba == "3" and tanque in ["E", "A"]: res = "21"
+        elif bomba == "4" and tanque in ["C", "N", "E"]: res = "B4"
+        elif bomba == "4" and tanque in ["CIP", "I"]: res = "19"
+        elif bomba == "4" and tanque in ["LIBRE 2", "O"]: res = "20"
+        elif bomba == "4" and tanque in ["D", "M"]: res = "21"
+        elif bomba == "5" and tanque in ["E", "M", "O", "I"]: res = "B5"
+        elif bomba == "5" and tanque in ["N", "P"]: res = "19"
+        elif bomba == "5" and tanque == "Q": res = "20"
+        elif bomba == "5" and tanque in ["H", "C"]: res = "21"
+        elif bomba == "6" and tanque in ["P", "M", "Q", "H"]: res = "B6"
+        elif bomba == "6" and tanque == "O": res = "19"
+        elif bomba == "6" and tanque == "I": res = "20"
+        elif bomba == "6" and tanque == "E": res = "21"
+        else: res = "Manguera"
         st.success(f">> Teléfono a emplear: {res} ({pc10_tel})")
 
     # --- 11. CIP FUNDIDORES ---
