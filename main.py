@@ -701,16 +701,16 @@ elif seleccion_envio == "Envío 2":
                 res = "B9"
             elif tanque == "S":
                 res = "B9-B10"
-            st.success(f"PC 23 Teléfono a emplear: {res} / Opción alternativa: B9-B10")
+            st.success(f"PC 23 Teléfono a emplear: {res}")
             
         elif bomba == "Bomba 10":
             st.info("PC12 Teléfono: 1")
             tanque = st.selectbox("Seleccione el Tanque:", ["R", "U", "S"])
             if tanque in ["R", "U"]:
                 res = "B10"
-            elif tanque == "R":  # El texto especifica explícitamente B9-B10 con bomba 10 para R alternativo
+            elif tanque == "R":
                 res = "B9-B10"
-            st.success(f"PC 23 Teléfono a emplear: {res} / Opción alternativa: B9-B10")
+            st.success(f"PC 23 Teléfono a emplear: {res}")
 
     # ==========================================
     # 2. PLANTA 2
@@ -726,7 +726,7 @@ elif seleccion_envio == "Envío 2":
                 res = "B8"
             elif tanque == "X":
                 res = "B7-B8"
-            st.success(f"PC 23 Teléfono a emplear: {res} / Opción alternativa: B7-B8")
+            st.success(f"PC 23 Teléfono a emplear: {res}")
             
         elif bomba == "Bomba 9":
             st.info("PC12 Teléfono: 1")
@@ -735,7 +735,7 @@ elif seleccion_envio == "Envío 2":
                 res = "B9"
             elif tanque == "S":
                 res = "B9-B10"
-            st.success(f"PC 23 Teléfono a emplear: {res} / Opción alternativa: B9-B10")
+            st.success(f"PC 23 Teléfono a emplear: {res}")
             
         elif bomba == "Bomba 10":
             st.info("PC12 Teléfono: 1")
@@ -744,7 +744,7 @@ elif seleccion_envio == "Envío 2":
                 res = "B10"
             elif tanque == "R":
                 res = "B9-B10"
-            st.success(f"PC 23 Teléfono a emplear: {res} / Opción alternativa: B9-B10")
+            st.success(f"PC 23 Teléfono a emplear: {res}")
 
     # ==========================================
     # 3. PLANTA 3
@@ -760,7 +760,7 @@ elif seleccion_envio == "Envío 2":
                 res = "B7"
             elif tanque == "T":
                 res = "B7-B8"
-            st.success(f"PC 23 Teléfono a emplear: {res} / Opción alternativa: B7-B8")
+            st.success(f"PC 23 Teléfono a emplear: {res}")
             
         elif bomba == "Bomba 8":
             st.info("PC12 Teléfono: 1")
@@ -769,7 +769,7 @@ elif seleccion_envio == "Envío 2":
                 res = "B8"
             elif tanque == "X":
                 res = "B7-B8"
-            st.success(f"PC 23 Teléfono a emplear: {res} / Opción alternativa: B7-B8")
+            st.success(f"PC 23 Teléfono a emplear: {res}")
             
         elif bomba == "Bomba 9":
             st.info("PC12 Teléfono: 1")
@@ -778,7 +778,7 @@ elif seleccion_envio == "Envío 2":
                 res = "B9"
             elif tanque == "S":
                 res = "B9-B10"
-            st.success(f"PC 23 Teléfono a emplear: {res} / Opción alternativa: B9-B10")
+            st.success(f"PC 23 Teléfono a emplear: {res}")
             
         elif bomba == "Bomba 10":
             st.info("PC12 Teléfono: 5")
@@ -787,7 +787,7 @@ elif seleccion_envio == "Envío 2":
                 res = "B10"
             elif tanque == "R":
                 res = "B9-B10"
-            st.success(f"PC 23 Teléfono a emplear: {res} / Opción alternativa: B9-B10")
+            st.success(f"PC 23 Teléfono a emplear: {res}")
 
     # ==========================================
     # 4. PLANTA 4
@@ -803,7 +803,7 @@ elif seleccion_envio == "Envío 2":
                 res = "B7"
             elif tanque == "T":
                 res = "B7-B8"
-            st.success(f"PC 23 Teléfono a emplear: {res} / Opción alternativa: B7-B8")
+            st.success(f"PC 23 Teléfono a emplear: {res}")
             
         elif bomba == "Bomba 8":
             st.info("PC12 Teléfono: 5")
@@ -812,7 +812,7 @@ elif seleccion_envio == "Envío 2":
                 res = "B8"
             elif tanque == "X":
                 res = "B7-B8"
-            st.success(f"PC 23 Teléfono a emplear: {res} / Opción alternativa: B7-B8")
+            st.success(f"PC 23 Teléfono a emplear: {res}")
             
         elif bomba == "Bomba 9":
             st.info("PC12 Teléfono: 1")
@@ -821,7 +821,7 @@ elif seleccion_envio == "Envío 2":
                 res = "B9"
             elif tanque == "S":
                 res = "B9-B10"
-            st.success(f"PC 23 Teléfono a emplear: {res} / Opción alternativa: B9-B10")
+            st.success(f"PC 23 Teléfono a emplear: {res}")
 
     # ==========================================
     # 5. PLANTA 5
@@ -837,7 +837,7 @@ elif seleccion_envio == "Envío 2":
                 res = "B7"
             elif tanque == "T":
                 res = "B7-B8"
-            st.success(f"PC 23 Teléfono a emplear: {res} / Opción alternativa: B7-B8")
+            st.success(f"PC 23 Teléfono a emplear: {res}")
             
         elif bomba == "Bomba 8":
             st.info("PC12 Teléfono: 5")
@@ -846,7 +846,7 @@ elif seleccion_envio == "Envío 2":
                 res = "B8"
             elif tanque == "X":
                 res = "B7-B8"
-            st.success(f"PC 23 Teléfono a emplear: {res} / Opción alternativa: B7-B8")
+            st.success(f"PC 23 Teléfono a emplear: {res}")
 
     # ==========================================
     # 6. FMM1
@@ -862,7 +862,7 @@ elif seleccion_envio == "Envío 2":
                 res = "B9"
             elif tanque == "S":
                 res = "B9-B10"
-            st.success(f"PC 23 Teléfono a emplear: {res} / Opción alternativa: B9-B10")
+            st.success(f"PC 23 Teléfono a emplear: {res}")
             
         elif bomba == "Bomba 10":
             st.info("PC12 Teléfono: 1")
@@ -871,7 +871,7 @@ elif seleccion_envio == "Envío 2":
                 res = "B10"
             elif tanque == "R":
                 res = "B9-B10"
-            st.success(f"PC 23 Teléfono a emplear: {res} / Opción alternativa: B9-B10")
+            st.success(f"PC 23 Teléfono a emplear: {res}")
 
     # ==========================================
     # 7. FMM2
@@ -887,7 +887,7 @@ elif seleccion_envio == "Envío 2":
                 res = "B8"
             elif tanque == "X":
                 res = "B7-B8"
-            st.success(f"PC 23 Teléfono a emplear: {res} / Opción alternativa: B7-B8")
+            st.success(f"PC 23 Teléfono a emplear: {res}")
             
         elif bomba == "Bomba 9":
             st.info("PC12 Teléfono: 1")
@@ -896,7 +896,7 @@ elif seleccion_envio == "Envío 2":
                 res = "B9"
             elif tanque == "S":
                 res = "B9-B10"
-            st.success(f"PC 23 Teléfono a emplear: {res} / Opción alternativa: B9-B10")
+            st.success(f"PC 23 Teléfono a emplear: {res}")
             
         elif bomba == "Bomba 10":
             st.info("PC12 Teléfono: 1")
@@ -905,7 +905,7 @@ elif seleccion_envio == "Envío 2":
                 res = "B10"
             elif tanque == "R":
                 res = "B9-B10"
-            st.success(f"PC 23 Teléfono a emplear: {res} / Opción alternativa: B9-B10")
+            st.success(f"PC 23 Teléfono a emplear: {res}")
 
     # ==========================================
     # 8. CLARIFICAR
@@ -921,7 +921,7 @@ elif seleccion_envio == "Envío 2":
                 res = "B7"
             elif tanque == "T":
                 res = "B7-B8"
-            st.success(f"PC 23 Teléfono a emplear: {res} / Opción alternativa: B7-B8")
+            st.success(f"PC 23 Teléfono a emplear: {res}")
             
         elif bomba == "Bomba 8":
             st.info("PC12 Teléfono: 1")
@@ -930,7 +930,7 @@ elif seleccion_envio == "Envío 2":
                 res = "B8"
             elif tanque == "X":
                 res = "B7-B8"
-            st.success(f"PC 23 Teléfono a emplear: {res} / Opción alternativa: B7-B8")
+            st.success(f"PC 23 Teléfono a emplear: {res}")
             
         elif bomba == "Bomba 9":
             st.info("PC12 Teléfono: 1")
@@ -939,7 +939,7 @@ elif seleccion_envio == "Envío 2":
                 res = "B9"
             elif tanque == "S":
                 res = "B9-B10"
-            st.success(f"PC 23 Teléfono a emplear: {res} / Opción alternativa: B9-B10")
+            st.success(f"PC 23 Teléfono a emplear: {res}")
             
         elif bomba == "Bomba 10":
             st.info("PC12 Teléfono: 5")
@@ -948,7 +948,7 @@ elif seleccion_envio == "Envío 2":
                 res = "B10"
             elif tanque == "R":
                 res = "B9-B10"
-            st.success(f"PC 23 Teléfono a emplear: {res} / Opción alternativa: B9-B10")
+            st.success(f"PC 23 Teléfono a emplear: {res}")
 
     # ==========================================
     # 9. MARMITA
@@ -964,7 +964,7 @@ elif seleccion_envio == "Envío 2":
                 res = "B7"
             elif tanque == "T":
                 res = "B7-B8"
-            st.success(f"PC 23 Teléfono a emplear: {res} / Opción alternativa: B7-B8")
+            st.success(f"PC 23 Teléfono a emplear: {res}")
             
         elif bomba == "Bomba 8":
             st.info("PC12 Teléfono: 5")
@@ -973,7 +973,7 @@ elif seleccion_envio == "Envío 2":
                 res = "B8"
             elif tanque == "X":
                 res = "B7-B8"
-            st.success(f"PC 23 Teléfono a emplear: {res} / Opción alternativa: B7-B8")
+            st.success(f"PC 23 Teléfono a emplear: {res}")
             
         elif bomba == "Bomba 9":
             st.info("PC12 Teléfono: 1")
@@ -982,7 +982,7 @@ elif seleccion_envio == "Envío 2":
                 res = "B9"
             elif tanque == "S":
                 res = "B9-B10"
-            st.success(f"PC 23 Teléfono a emplear: {res} / Opción alternativa: B9-B10")
+            st.success(f"PC 23 Teléfono a emplear: {res}")
 
     # ==========================================
     # 10. PASTEURIZAR
@@ -998,7 +998,7 @@ elif seleccion_envio == "Envío 2":
                 res = "B7"
             elif tanque == "T":
                 res = "B7-B8"
-            st.success(f"PC 23 Teléfono a emplear: {res} / Opción alternativa: B7-B8")
+            st.success(f"PC 23 Teléfono a emplear: {res}")
             
         elif bomba == "Bomba 8":
             st.info("PC12 Teléfono: 7")
@@ -1007,7 +1007,7 @@ elif seleccion_envio == "Envío 2":
                 res = "B8"
             elif tanque == "X":
                 res = "B7-B8"
-            st.success(f"PC 23 Teléfono a emplear: {res} / Opción alternativa: B7-B8")
+            st.success(f"PC 23 Teléfono a emplear: {res}")
             
         elif bomba == "Bomba 9":
             st.info("PC12 Teléfono: 7")
@@ -1016,7 +1016,7 @@ elif seleccion_envio == "Envío 2":
                 res = "B9"
             elif tanque == "S":
                 res = "B9-B10"
-            st.success(f"PC 23 Teléfono a emplear: {res} / Opción alternativa: B9-B10")
+            st.success(f"PC 23 Teléfono a emplear: {res}")
             
         elif bomba == "Bomba 10":
             st.info("PC12 Teléfono: 6")
@@ -1025,7 +1025,7 @@ elif seleccion_envio == "Envío 2":
                 res = "B10"
             elif tanque == "R":
                 res = "B9-B10"
-            st.success(f"PC 23 Teléfono a emplear: {res} / Opción alternativa: B9-B10")
+            st.success(f"PC 23 Teléfono a emplear: {res}")
 
     # ==========================================
     # 11. ULTRA PASTEURIZADOR
@@ -1041,7 +1041,7 @@ elif seleccion_envio == "Envío 2":
                 res = "B7"
             elif tanque == "T":
                 res = "B7-B8"
-            st.success(f"PC 23 Teléfono a emplear: {res} / Opción alternativa: B7-B8")
+            st.success(f"PC 23 Teléfono a emplear: {res}")
             
         elif bomba == "Bomba 8":
             st.info("PC12 Teléfono: 8")
@@ -1050,7 +1050,7 @@ elif seleccion_envio == "Envío 2":
                 res = "B8"
             elif tanque == "X":
                 res = "B7-B8"
-            st.success(f"PC 23 Teléfono a emplear: {res} / Opción alternativa: B7-B8")
+            st.success(f"PC 23 Teléfono a emplear: {res}")
             
         elif bomba == "Bomba 9":
             st.info("PC12 Teléfono: 8")
@@ -1059,7 +1059,7 @@ elif seleccion_envio == "Envío 2":
                 res = "B9"
             elif tanque == "S":
                 res = "B9-B10"
-            st.success(f"PC 23 Teléfono a emplear: {res} / Opción alternativa: B9-B10")
+            st.success(f"PC 23 Teléfono a emplear: {res}")
             
         elif bomba == "Bomba 10":
             st.info("PC12 Teléfono: 9")
@@ -1068,7 +1068,7 @@ elif seleccion_envio == "Envío 2":
                 res = "B10"
             elif tanque == "R":
                 res = "B9-B10"
-            st.success(f"PC 23 Teléfono a emplear: {res} / Opción alternativa: B9-B10")
+            st.success(f"PC 23 Teléfono a emplear: {res}")
 
     # ==========================================
     # 12. ENVÍO A PC11
