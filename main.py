@@ -705,8 +705,8 @@ elif seleccion_envio == "Envío 2":
             
         elif bomba == "Bomba 10":
             st.info("PC12 Teléfono: 1")
-            tanque = st.selectbox("Seleccione el Tanque:", ["R", "U", "S"])
-            if tanque in ["R", "U"]:
+            tanque = st.selectbox("Seleccione el Tanque:", ["S", "U", "R"])
+            if tanque in ["S", "U"]:
                 res = "B10"
             elif tanque == "R":
                 res = "B9-B10"
@@ -739,8 +739,8 @@ elif seleccion_envio == "Envío 2":
             
         elif bomba == "Bomba 10":
             st.info("PC12 Teléfono: 1")
-            tanque = st.selectbox("Seleccione el Tanque (Succiona de R, U, S):", ["R", "U", "S"])
-            if tanque in ["R", "U"]:
+            tanque = st.selectbox("Seleccione el Tanque (Succiona de R, U, S):", ["S", "U", "R"])
+            if tanque in ["S", "U"]:
                 res = "B10"
             elif tanque == "R":
                 res = "B9-B10"
@@ -782,8 +782,8 @@ elif seleccion_envio == "Envío 2":
             
         elif bomba == "Bomba 10":
             st.info("PC12 Teléfono: 5")
-            tanque = st.selectbox("Seleccione el Tanque (Succiona de R, U, S):", ["R", "U", "S"])
-            if tanque in ["R", "U"]:
+            tanque = st.selectbox("Seleccione el Tanque (Succiona de R, U, S):", ["S", "U", "R"])
+            if tanque in ["S", "U"]:
                 res = "B10"
             elif tanque == "R":
                 res = "B9-B10"
@@ -866,8 +866,8 @@ elif seleccion_envio == "Envío 2":
             
         elif bomba == "Bomba 10":
             st.info("PC12 Teléfono: 1")
-            tanque = st.selectbox("Seleccione el Tanque:", ["R", "U", "S"])
-            if tanque in ["R", "U"]:
+            tanque = st.selectbox("Seleccione el Tanque:", ["S", "U", "R"])
+            if tanque in ["S", "U"]:
                 res = "B10"
             elif tanque == "R":
                 res = "B9-B10"
@@ -900,8 +900,8 @@ elif seleccion_envio == "Envío 2":
             
         elif bomba == "Bomba 10":
             st.info("PC12 Teléfono: 1")
-            tanque = st.selectbox("Seleccione el Tanque (Succiona de R, U, S):", ["R", "U", "S"])
-            if tanque in ["R", "U"]:
+            tanque = st.selectbox("Seleccione el Tanque (Succiona de R, U, S):", ["S", "U", "R"])
+            if tanque in ["S", "U"]:
                 res = "B10"
             elif tanque == "R":
                 res = "B9-B10"
@@ -943,8 +943,8 @@ elif seleccion_envio == "Envío 2":
             
         elif bomba == "Bomba 10":
             st.info("PC12 Teléfono: 5")
-            tanque = st.selectbox("Seleccione el Tanque (Succiona de R, U, S):", ["R", "U", "S"])
-            if tanque in ["R", "U"]:
+            tanque = st.selectbox("Seleccione el Tanque (Succiona de R, U, S):", ["S", "U", "R"])
+            if tanque in ["S", "U"]:
                 res = "B10"
             elif tanque == "R":
                 res = "B9-B10"
@@ -1020,8 +1020,8 @@ elif seleccion_envio == "Envío 2":
             
         elif bomba == "Bomba 10":
             st.info("PC12 Teléfono: 6")
-            tanque = st.selectbox("Seleccione el Tanque (Succiona de R, U, S):", ["R", "U", "S"])
-            if tanque in ["R", "U"]:
+            tanque = st.selectbox("Seleccione el Tanque (Succiona de R, U, S):", ["S", "U", "R"])
+            if tanque in ["S", "U"]:
                 res = "B10"
             elif tanque == "R":
                 res = "B9-B10"
@@ -1063,8 +1063,8 @@ elif seleccion_envio == "Envío 2":
             
         elif bomba == "Bomba 10":
             st.info("PC12 Teléfono: 9")
-            tanque = st.selectbox("Seleccione el Tanque (Succiona de R, U, S):", ["R", "U", "S"])
-            if tanque in ["R", "U"]:
+            tanque = st.selectbox("Seleccione el Tanque (Succiona de R, U, S):", ["S", "U", "R"])
+            if tanque in ["S", "U"]:
                 res = "B10"
             elif tanque == "R":
                 res = "B9-B10"
@@ -1106,8 +1106,8 @@ elif seleccion_envio == "Envío 2":
             
         elif bomba == "Bomba 10":
             st.info("Teléfono de Bomba: 6")
-            tanque = st.selectbox("Seleccione el Tanque (Succiona de R, U, S):", ["R", "U", "S"])
-            if tanque in ["R", "U"]:
+            tanque = st.selectbox("Seleccione el Tanque (Succiona de R, U, S):", ["S", "U", "R"])
+            if tanque in ["S", "U"]:
                 res = "B10"
             elif tanque == "R":
                 res = "B9-B10"
