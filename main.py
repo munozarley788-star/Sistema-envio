@@ -9,7 +9,7 @@ st.set_page_config(page_title="Sistema de Envío", page_icon="🥛")
 st.title("🚜 SISTEMA DE ENVÍO")
 
 # Menú lateral
-seleccion_envio = st.sidebar.radio("MENÚ PRINCIPAL", ["Envío 1", "Envío 2", "Salir"])
+seleccion_envio = st.sidebar.radio("MENÚ PRINCIPAL", ["Envío 1", "Inventario Envío 1", "Envío 2", "Salir"])
 
 if seleccion_envio == "Salir":
     st.write("¡Buen turno! Recarga la página para volver a empezar.")
@@ -662,6 +662,52 @@ elif seleccion_envio == "Envío 1":
         elif sector_uht in ["FMM2", "Marmita"]: res_uht = "16"
         elif sector_uht in ["FMM1", "Decantar"]: res_uht = "17"
         st.success(f"Teléfono CIP UHT a emplear: {res_uht}")
+
+elif seleccion_envio == "Inventario Envío 1":
+    st.header("📦 Inventario Envío 1")
+    st.write("A continuación se detalla la cantidad de accesorios por placa para este envío:")
+    
+    # --- DATOS DE LA PLACA PC22 ---
+    st.subheader("🔹 Placa PC22")
+    inventario_pc22 = {
+        "Descripción del Accesorio": [
+            "Teléfono B1", "Teléfono B2", "Teléfono B3", 
+            "Teléfono B4", "Teléfono B5", "Teléfono B6", 
+            "Teléfono 19", "Teléfono 20", "Teléfono 21"
+        ],
+        "Cantidad (Unidades)": [1, 1, 1, 1, 1, 1, 2, 2, 2]
+    }
+    st.table(inventario_pc22)
+    total_pc22 = sum(inventario_pc22["Cantidad (Unidades)"])
+    st.markdown(f"**Subtotal Placa PC22:** {total_pc22} unidades")
+    
+    st.markdown("---")
+    
+    # --- DATOS DE LA PLACA PC13 ---
+    st.subheader("🔹 Placa PC13")
+    inventario_pc13 = {
+        "Descripción del Accesorio": [
+            "Teléfono 1", "Teléfono 2", "Teléfono 3", "Teléfono 4", 
+            "Teléfono 5", "Teléfono 6", "Teléfono 7", "Teléfono 8", 
+            "Teléfono 9", "Teléfono 10", "Teléfono 11", "Teléfono 12", 
+            "Teléfono 13", "Teléfono 14", "Teléfono 15", "Teléfono 16", 
+            "Teléfono 17", "Teléfono 18"
+        ],
+        "Cantidad (Unidades)": [6, 1, 1, 1, 2, 2, 2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2]
+    }
+    st.table(inventario_pc13)
+    total_pc13 = sum(inventario_pc13["Cantidad (Unidades)"])
+    st.markdown(f"**Subtotal Placa PC13:** {total_pc13} unidades")
+    
+    st.markdown("---")
+    
+    # --- TOTAL GENERAL DEL ENVÍO ---
+    total_general = total_pc22 + total_pc13
+    
+    col1, col2 = st.columns([2, 1])
+    with col2:
+        st.metric(label="📊 CANTIDAD TOTAL ENVÍO 1", value=f"{total_general} uds") 
+
             
 elif seleccion_envio == "Envío 2":
     st.header("📍 Envío 2 - Destinos")
