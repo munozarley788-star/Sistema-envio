@@ -52,8 +52,10 @@ elif seleccion_envio == "Envío 1":
             elif tanque == "K": res = "19"
             elif tanque == "Libre 1": res = "20"
             elif tanque == "Libre 2": res = "21"
-            else: res = "Manguera"
-            st.success(f"PC 22 Teléfono a emplear: {res}")
+            else: res = "No asignado"
+            
+            if res != "No asignado": st.success(f"PC 22 Teléfono a emplear: {res}")
+            else: st.warning("No hay teléfono asignado para esta combinación.")
             
         elif bomba == "Bomba 2":
             st.info("PC13: Teléfono 1")
@@ -61,8 +63,10 @@ elif seleccion_envio == "Envío 1":
             if tanque in ["A", "K", "Libre 1", "D"]: res = "B2"
             elif tanque in ["L", "Libre 2"]: res = "19"
             elif tanque in ["F", "CIP"]: res = "20"
-            else: res = "Manguera"
-            st.success(f"PC 22 Teléfono a emplear: {res}")
+            else: res = "No asignado"
+            
+            if res != "No asignado": st.success(f"PC 22 Teléfono a emplear: {res}")
+            else: st.warning("No hay teléfono asignado para esta combinación.")
             
         elif bomba == "Bomba 3":
             st.info("PC13: Teléfono 18")
@@ -71,8 +75,10 @@ elif seleccion_envio == "Envío 1":
             elif tanque == "Libre 1": res = "19"
             elif tanque in ["K", "N"]: res = "20"
             elif tanque in ["L", "I"]: res = "21"
-            else: res = "Manguera"
-            st.success(f"PC 22 Teléfono a emplear: {res}")
+            else: res = "No asignado"
+            
+            if res != "No asignado": st.success(f"PC 22 Teléfono a emplear: {res}")
+            else: st.warning("No hay teléfono asignado para esta combinación.")
 
     # --- PLANTA 2 ---
     elif opcion == "2. Planta 2":
@@ -86,8 +92,10 @@ elif seleccion_envio == "Envío 1":
             elif tanque == "K": res = "19"
             elif tanque == "Libre 1": res = "20"
             elif tanque == "Libre 2": res = "21"
-            else: res = "Manguera"
-            st.success(f"PC 22 Teléfono a emplear: {res}")
+            else: res = "No asignado"
+            
+            if res != "No asignado": st.success(f"PC 22 Teléfono a emplear: {res}")
+            else: st.warning("No hay teléfono asignado para esta combinación.")
             
         elif bomba == "Bomba 2":
             st.info("PC13: Teléfono 1")
@@ -95,8 +103,10 @@ elif seleccion_envio == "Envío 1":
             if tanque in ["A", "K", "Libre 1", "D"]: res = "B2"
             elif tanque in ["L", "Libre 2"]: res = "19"
             elif tanque in ["F", "CIP"]: res = "20"
-            else: res = "Manguera"
-            st.success(f"PC 22 Teléfono a emplear: {res}")
+            else: res = "No asignado"
+            
+            if res != "No asignado": st.success(f"PC 22 Teléfono a emplear: {res}")
+            else: st.warning("No hay teléfono asignado para esta combinación.")
             
         elif bomba == "Bomba 3":
             st.info("PC13: Teléfono 1")
@@ -105,8 +115,10 @@ elif seleccion_envio == "Envío 1":
             elif tanque == "Libre 1": res = "19"
             elif tanque in ["K", "N"]: res = "20"
             elif tanque in ["L", "I"]: res = "21"
-            else: res = "Manguera"
-            st.success(f"PC 22 Teléfono a emplear: {res}")
+            else: res = "No asignado"
+            
+            if res != "No asignado": st.success(f"PC 22 Teléfono a emplear: {res}")
+            else: st.warning("No hay teléfono asignado para esta combinación.")
             
         elif bomba == "Bomba 4":
             st.info("PC13: Teléfono 18")
@@ -115,8 +127,10 @@ elif seleccion_envio == "Envío 1":
             elif tanque in ["CIP", "I"]: res = "19"
             elif tanque in ["Libre 2", "O"]: res = "20"
             elif tanque in ["Libre 1", "P"]: res = "21"
-            else: res = "Manguera"
-            st.success(f"PC 22 Teléfono a emplear: {res}")
+            else: res = "No asignado"
+            
+            if res != "No asignado": st.success(f"PC 22 Teléfono a emplear: {res}")
+            else: st.warning("No hay teléfono asignado para esta combinación.")
 
     # --- PLANTA 3 ---
     elif opcion == "3. Planta 3":
@@ -129,8 +143,10 @@ elif seleccion_envio == "Envío 1":
             if tanque in ["A", "K", "Libre 1", "D"]: res = "B2"
             elif tanque in ["L", "Libre 2"]: res = "19"
             elif tanque in ["F", "CIP"]: res = "20"
-            else: res = "Manguera"
-            st.success(f"PC 22 Teléfono a emplear: {res}")
+            else: res = "No asignado"
+            
+            if res != "No asignado": st.success(f"PC 22 Teléfono a emplear: {res}")
+            else: st.warning("No hay teléfono asignado para esta combinación.")
             
         elif bomba == "Bomba 3":
             st.info("PC13: Teléfono 1")
@@ -139,8 +155,10 @@ elif seleccion_envio == "Envío 1":
             elif tanque == "Libre 1": res = "19"
             elif tanque in ["K", "N"]: res = "20"
             elif tanque in ["L", "I"]: res = "21"
-            else: res = "Manguera"
-            st.success(f"PC 22 Teléfono a emplear: {res}")
+            else: res = "No asignado"
+            
+            if res != "No asignado": st.success(f"PC 22 Teléfono a emplear: {res}")
+            else: st.warning("No hay teléfono asignado para esta combinación.")
             
         elif bomba == "Bomba 4":
             st.info("PC13: Teléfono 1")
@@ -149,8 +167,10 @@ elif seleccion_envio == "Envío 1":
             elif tanque in ["CIP", "I"]: res = "19"
             elif tanque in ["Libre 2", "O"]: res = "20"
             elif tanque in ["Libre 1", "P"]: res = "21"
-            else: res = "Manguera"
-            st.success(f"PC 22 Teléfono a emplear: {res}")
+            else: res = "No asignado"
+            
+            if res != "No asignado": st.success(f"PC 22 Teléfono a emplear: {res}")
+            else: st.warning("No hay teléfono asignado para esta combinación.")
             
         elif bomba == "Bomba 5":
             st.info("PC13: Teléfono 18")
@@ -159,8 +179,10 @@ elif seleccion_envio == "Envío 1":
             elif tanque in ["N", "P"]: res = "19"
             elif tanque == "Q": res = "20"
             elif tanque == "CIP": res = "21"
-            else: res = "Manguera"
-            st.success(f"PC 22 Teléfono a emplear: {res}")
+            else: res = "No asignado"
+            
+            if res != "No asignado": st.success(f"PC 22 Teléfono a emplear: {res}")
+            else: st.warning("No hay teléfono asignado para esta combinación.")
 
     # --- PLANTA 4 ---
     elif opcion == "4. Planta 4":
@@ -174,8 +196,10 @@ elif seleccion_envio == "Envío 1":
             elif tanque == "Libre 1": res = "19"
             elif tanque in ["K", "N"]: res = "20"
             elif tanque in ["L", "I"]: res = "21"
-            else: res = "Manguera"
-            st.success(f"PC 22 Teléfono a emplear: {res}")
+            else: res = "No asignado"
+            
+            if res != "No asignado": st.success(f"PC 22 Teléfono a emplear: {res}")
+            else: st.warning("No hay teléfono asignado para esta combinación.")
             
         elif bomba == "Bomba 4":
             st.info("PC13: Teléfono 1")
@@ -184,8 +208,10 @@ elif seleccion_envio == "Envío 1":
             elif tanque in ["CIP", "I"]: res = "19"
             elif tanque in ["Libre 2", "O"]: res = "20"
             elif tanque in ["Libre 1", "P"]: res = "21"
-            else: res = "Manguera"
-            st.success(f"PC 22 Teléfono a emplear: {res}")
+            else: res = "No asignado"
+            
+            if res != "No asignado": st.success(f"PC 22 Teléfono a emplear: {res}")
+            else: st.warning("No hay teléfono asignado para esta combinación.")
             
         elif bomba == "Bomba 5":
             st.info("PC13: Teléfono 1")
@@ -194,8 +220,10 @@ elif seleccion_envio == "Envío 1":
             elif tanque in ["N", "P"]: res = "19"
             elif tanque == "Q": res = "20"
             elif tanque == "CIP": res = "21"
-            else: res = "Manguera"
-            st.success(f"PC 22 Teléfono a emplear: {res}")
+            else: res = "No asignado"
+            
+            if res != "No asignado": st.success(f"PC 22 Teléfono a emplear: {res}")
+            else: st.warning("No hay teléfono asignado para esta combinación.")
             
         elif bomba == "Bomba 6":
             st.info("PC13: Teléfono 18")
@@ -204,8 +232,10 @@ elif seleccion_envio == "Envío 1":
             elif tanque == "O": res = "19"
             elif tanque == "I": res = "20"
             elif tanque == "N": res = "21"
-            else: res = "Manguera"
-            st.success(f"PC 22 Teléfono a emplear: {res}")
+            else: res = "No asignado"
+            
+            if res != "No asignado": st.success(f"PC 22 Teléfono a emplear: {res}")
+            else: st.warning("No hay teléfono asignado para esta combinación.")
 
     # --- PLANTA 5 ---
     elif opcion == "5. Planta 5":
@@ -219,8 +249,10 @@ elif seleccion_envio == "Envío 1":
             elif tanque in ["CIP", "I"]: res = "19"
             elif tanque in ["Libre 2", "O"]: res = "20"
             elif tanque in ["Libre 1", "P"]: res = "21"
-            else: res = "Manguera"
-            st.success(f"PC 22 Teléfono a emplear: {res}")
+            else: res = "No asignado"
+            
+            if res != "No asignado": st.success(f"PC 22 Teléfono a emplear: {res}")
+            else: st.warning("No hay teléfono asignado para esta combinación.")
             
         elif bomba == "Bomba 5":
             st.info("PC13: Teléfono 1")
@@ -229,8 +261,10 @@ elif seleccion_envio == "Envío 1":
             elif tanque in ["N", "P"]: res = "19"
             elif tanque == "Q": res = "20"
             elif tanque == "CIP": res = "21"
-            else: res = "Manguera"
-            st.success(f"PC 22 Teléfono a emplear: {res}")
+            else: res = "No asignado"
+            
+            if res != "No asignado": st.success(f"PC 22 Teléfono a emplear: {res}")
+            else: st.warning("No hay teléfono asignado para esta combinación.")
             
         elif bomba == "Bomba 6":
             st.info("PC13: Teléfono 1")
@@ -239,8 +273,10 @@ elif seleccion_envio == "Envío 1":
             elif tanque == "O": res = "19"
             elif tanque == "I": res = "20"
             elif tanque == "N": res = "21"
-            else: res = "Manguera"
-            st.success(f"PC 22 Teléfono a emplear: {res}")
+            else: res = "No asignado"
+            
+            if res != "No asignado": st.success(f"PC 22 Teléfono a emplear: {res}")
+            else: st.warning("No hay teléfono asignado para esta combinación.")
 
     # --- FMM1 ---
     elif opcion == "6. FMM1":
@@ -254,8 +290,10 @@ elif seleccion_envio == "Envío 1":
             elif tanque == "K": res = "19"
             elif tanque == "Libre 1": res = "20"
             elif tanque == "Libre 2": res = "21"
-            else: res = "Manguera"
-            st.success(f"PC 22 Teléfono a emplear: {res}")
+            else: res = "No asignado"
+            
+            if res != "No asignado": st.success(f"PC 22 Teléfono a emplear: {res}")
+            else: st.warning("No hay teléfono asignado para esta combinación.")
             
         elif bomba == "Bomba 2":
             st.info("PC13: Teléfono 1")
@@ -263,8 +301,10 @@ elif seleccion_envio == "Envío 1":
             if tanque in ["A", "K", "Libre 1", "D"]: res = "B2"
             elif tanque in ["L", "Libre 2"]: res = "19"
             elif tanque in ["F", "CIP"]: res = "20"
-            else: res = "Manguera"
-            st.success(f"PC 22 Teléfono a emplear: {res}")
+            else: res = "No asignado"
+            
+            if res != "No asignado": st.success(f"PC 22 Teléfono a emplear: {res}")
+            else: st.warning("No hay teléfono asignado para esta combinación.")
             
         elif bomba == "Bomba 3":
             st.info("PC13: Teléfono 18")
@@ -273,8 +313,10 @@ elif seleccion_envio == "Envío 1":
             elif tanque == "Libre 1": res = "19"
             elif tanque in ["K", "N"]: res = "20"
             elif tanque in ["L", "I"]: res = "21"
-            else: res = "Manguera"
-            st.success(f"PC 22 Teléfono a emplear: {res}")
+            else: res = "No asignado"
+            
+            if res != "No asignado": st.success(f"PC 22 Teléfono a emplear: {res}")
+            else: st.warning("No hay teléfono asignado para esta combinación.")
 
     # --- ADICIÓN DE MICROMOLIDO ---
     elif opcion == "7. ADICIÓN DE MICROMOLIDO":
@@ -288,8 +330,10 @@ elif seleccion_envio == "Envío 1":
             elif tanque == "K": res = "19"
             elif tanque == "Libre 1": res = "20"
             elif tanque == "Libre 2": res = "21"
-            else: res = "Manguera"
-            st.success(f"PC 22 Teléfono a emplear: {res}")
+            else: res = "No asignado"
+            
+            if res != "No asignado": st.success(f"PC 22 Teléfono a emplear: {res}")
+            else: st.warning("No hay teléfono asignado para esta combinación.")
             
         elif bomba == "Bomba 2":
             st.info("PC13: Teléfono 1")
@@ -297,8 +341,10 @@ elif seleccion_envio == "Envío 1":
             if tanque in ["A", "K", "Libre 1", "D"]: res = "B2"
             elif tanque in ["L", "Libre 2"]: res = "19"
             elif tanque in ["F", "CIP"]: res = "20"
-            else: res = "Manguera"
-            st.success(f"PC 22 Teléfono a emplear: {res}")
+            else: res = "No asignado"
+            
+            if res != "No asignado": st.success(f"PC 22 Teléfono a emplear: {res}")
+            else: st.warning("No hay teléfono asignado para esta combinación.")
             
         elif bomba == "Bomba 3":
             st.info("PC13: Teléfono 1")
@@ -307,8 +353,10 @@ elif seleccion_envio == "Envío 1":
             elif tanque == "Libre 1": res = "19"
             elif tanque in ["K", "N"]: res = "20"
             elif tanque in ["L", "I"]: res = "21"
-            else: res = "Manguera"
-            st.success(f"PC 22 Teléfono a emplear: {res}")
+            else: res = "No asignado"
+            
+            if res != "No asignado": st.success(f"PC 22 Teléfono a emplear: {res}")
+            else: st.warning("No hay teléfono asignado para esta combinación.")
             
         elif bomba == "Bomba 4":
             st.info("PC13: Teléfono 18")
@@ -317,8 +365,10 @@ elif seleccion_envio == "Envío 1":
             elif tanque in ["CIP", "I"]: res = "19"
             elif tanque in ["Libre 2", "O"]: res = "20"
             elif tanque in ["Libre 1", "P"]: res = "21"
-            else: res = "Manguera"
-            st.success(f"PC 22 Teléfono a emplear: {res}")
+            else: res = "No asignado"
+            
+            if res != "No asignado": st.success(f"PC 22 Teléfono a emplear: {res}")
+            else: st.warning("No hay teléfono asignado para esta combinación.")
 
         elif bomba == "Bomba 5":
             st.info("PC13: Teléfono Articulado")
@@ -327,8 +377,10 @@ elif seleccion_envio == "Envío 1":
             elif tanque in ["N", "P"]: res = "19"
             elif tanque == "Q": res = "20"
             elif tanque == "CIP": res = "21"
-            else: res = "Manguera"
-            st.success(f"PC 22 Teléfono a emplear: {res}")
+            else: res = "No asignado"
+            
+            if res != "No asignado": st.success(f"PC 22 Teléfono a emplear: {res}")
+            else: st.warning("No hay teléfono asignado para esta combinación.")
 
     # --- CLARIFICAR ---
     elif opcion == "8. Clarificar":
@@ -341,8 +393,10 @@ elif seleccion_envio == "Envío 1":
             if tanque in ["A", "K", "Libre 1", "D"]: res = "B2"
             elif tanque in ["L", "Libre 2"]: res = "19"
             elif tanque in ["F", "CIP"]: res = "20"
-            else: res = "Manguera"
-            st.success(f"PC 22 Teléfono a emplear: {res}")
+            else: res = "No asignado"
+            
+            if res != "No asignado": st.success(f"PC 22 Teléfono a emplear: {res}")
+            else: st.warning("No hay teléfono asignado para esta combinación.")
             
         elif bomba == "Bomba 3":
             st.info("PC13: Teléfono 1")
@@ -351,8 +405,10 @@ elif seleccion_envio == "Envío 1":
             elif tanque == "Libre 1": res = "19"
             elif tanque in ["K", "N"]: res = "20"
             elif tanque in ["L", "I"]: res = "21"
-            else: res = "Manguera"
-            st.success(f"PC 22 Teléfono a emplear: {res}")
+            else: res = "No asignado"
+            
+            if res != "No asignado": st.success(f"PC 22 Teléfono a emplear: {res}")
+            else: st.warning("No hay teléfono asignado para esta combinación.")
             
         elif bomba == "Bomba 4":
             st.info("PC13: Teléfono 1")
@@ -361,8 +417,10 @@ elif seleccion_envio == "Envío 1":
             elif tanque in ["CIP", "I"]: res = "19"
             elif tanque in ["Libre 2", "O"]: res = "20"
             elif tanque in ["Libre 1", "P"]: res = "21"
-            else: res = "Manguera"
-            st.success(f"PC 22 Teléfono a emplear: {res}")
+            else: res = "No asignado"
+            
+            if res != "No asignado": st.success(f"PC 22 Teléfono a emplear: {res}")
+            else: st.warning("No hay teléfono asignado para esta combinación.")
             
         elif bomba == "Bomba 5":
             st.info("PC13: Teléfono 18")
@@ -371,8 +429,10 @@ elif seleccion_envio == "Envío 1":
             elif tanque in ["N", "P"]: res = "19"
             elif tanque == "Q": res = "20"
             elif tanque == "CIP": res = "21"
-            else: res = "Manguera"
-            st.success(f"PC 22 Teléfono a emplear: {res}")
+            else: res = "No asignado"
+            
+            if res != "No asignado": st.success(f"PC 22 Teléfono a emplear: {res}")
+            else: st.warning("No hay teléfono asignado para esta combinación.")
 
     # --- MARMITA ---
     elif opcion == "9. Marmita":
@@ -386,8 +446,10 @@ elif seleccion_envio == "Envío 1":
             elif tanque == "Libre 1": res = "19"
             elif tanque in ["K", "N"]: res = "20"
             elif tanque in ["L", "I"]: res = "21"
-            else: res = "Manguera"
-            st.success(f"PC 22 Teléfono a emplear: {res}")
+            else: res = "No asignado"
+            
+            if res != "No asignado": st.success(f"PC 22 Teléfono a emplear: {res}")
+            else: st.warning("No hay teléfono asignado para esta combinación.")
             
         elif bomba == "Bomba 4":
             st.info("PC13: Teléfono 1")
@@ -396,8 +458,10 @@ elif seleccion_envio == "Envío 1":
             elif tanque in ["CIP", "I"]: res = "19"
             elif tanque in ["Libre 2", "O"]: res = "20"
             elif tanque in ["Libre 1", "P"]: res = "21"
-            else: res = "Manguera"
-            st.success(f"PC 22 Teléfono a emplear: {res}")
+            else: res = "No asignado"
+            
+            if res != "No asignado": st.success(f"PC 22 Teléfono a emplear: {res}")
+            else: st.warning("No hay teléfono asignado para esta combinación.")
             
         elif bomba == "Bomba 5":
             st.info("PC13: Teléfono 1")
@@ -406,8 +470,10 @@ elif seleccion_envio == "Envío 1":
             elif tanque in ["N", "P"]: res = "19"
             elif tanque == "Q": res = "20"
             elif tanque == "CIP": res = "21"
-            else: res = "Manguera"
-            st.success(f"PC 22 Teléfono a emplear: {res}")
+            else: res = "No asignado"
+            
+            if res != "No asignado": st.success(f"PC 22 Teléfono a emplear: {res}")
+            else: st.warning("No hay teléfono asignado para esta combinación.")
             
         elif bomba == "Bomba 6":
             st.info("PC13: Teléfono 18")
@@ -416,8 +482,10 @@ elif seleccion_envio == "Envío 1":
             elif tanque == "O": res = "19"
             elif tanque == "I": res = "20"
             elif tanque == "N": res = "21"
-            else: res = "Manguera"
-            st.success(f"PC 22 Teléfono a emplear: {res}")
+            else: res = "No asignado"
+            
+            if res != "No asignado": st.success(f"PC 22 Teléfono a emplear: {res}")
+            else: st.warning("No hay teléfono asignado para esta combinación.")
 
     # --- DECANTAR ---
     elif opcion == "10. Decantar":
@@ -431,8 +499,10 @@ elif seleccion_envio == "Envío 1":
             elif tanque in ["CIP", "I"]: res = "19"
             elif tanque in ["Libre 2", "O"]: res = "20"
             elif tanque in ["Libre 1", "P"]: res = "21"
-            else: res = "Manguera"
-            st.success(f"PC 22 Teléfono a emplear: {res}")
+            else: res = "No asignado"
+            
+            if res != "No asignado": st.success(f"PC 22 Teléfono a emplear: {res}")
+            else: st.warning("No hay teléfono asignado para esta combinación.")
             
         elif bomba == "Bomba 5":
             st.info("PC13: Teléfono 1")
@@ -441,8 +511,10 @@ elif seleccion_envio == "Envío 1":
             elif tanque in ["N", "P"]: res = "19"
             elif tanque == "Q": res = "20"
             elif tanque == "CIP": res = "21"
-            else: res = "Manguera"
-            st.success(f"PC 22 Teléfono a emplear: {res}")
+            else: res = "No asignado"
+            
+            if res != "No asignado": st.success(f"PC 22 Teléfono a emplear: {res}")
+            else: st.warning("No hay teléfono asignado para esta combinación.")
             
         elif bomba == "Bomba 6":
             st.info("PC13: Teléfono 11")
@@ -451,8 +523,10 @@ elif seleccion_envio == "Envío 1":
             elif tanque == "O": res = "19"
             elif tanque == "I": res = "20"
             elif tanque == "N": res = "21"
-            else: res = "Manguera"
-            st.success(f"PC 22 Teléfono a emplear: {res}")
+            else: res = "No asignado"
+            
+            if res != "No asignado": st.success(f"PC 22 Teléfono a emplear: {res}")
+            else: st.warning("No hay teléfono asignado para esta combinación.")
 
     # --- PASTEURIZAR ---
     elif opcion == "11. Pasteurizar":
@@ -468,16 +542,20 @@ elif seleccion_envio == "Envío 1":
             elif tanque == "K": res = "19"
             elif tanque == "Libre 1": res = "20"
             elif tanque == "Libre 2": res = "21"
-            else: res = "Manguera"
-            st.success(f"PC 22 Teléfono a emplear: {res}")
+            else: res = "No asignado"
+            
+            if res != "No asignado": st.success(f"PC 22 Teléfono a emplear: {res}")
+            else: st.warning("No hay teléfono asignado para esta combinación.")
             
         elif bomba == "Bomba 2":
             st.info("PC13: Teléfono 6")
             if tanque in ["A", "K", "Libre 1", "D"]: res = "B2"
             elif tanque in ["L", "Libre 2"]: res = "19"
             elif tanque in ["F", "CIP"]: res = "20"
-            else: res = "Manguera"
-            st.success(f"PC 22 Teléfono a emplear: {res}")
+            else: res = "No asignado"
+            
+            if res != "No asignado": st.success(f"PC 22 Teléfono a emplear: {res}")
+            else: st.warning("No hay teléfono asignado para esta combinación.")
             
         elif bomba == "Bomba 3":
             st.info("PC13: Teléfono 7")
@@ -485,8 +563,10 @@ elif seleccion_envio == "Envío 1":
             elif tanque == "Libre 1": res = "19"
             elif tanque in ["K", "N"]: res = "20"
             elif tanque in ["L", "I"]: res = "21"
-            else: res = "Manguera"
-            st.success(f"PC 22 Teléfono a emplear: {res}")
+            else: res = "No asignado"
+            
+            if res != "No asignado": st.success(f"PC 22 Teléfono a emplear: {res}")
+            else: st.warning("No hay teléfono asignado para esta combinación.")
             
         elif bomba == "Bomba 4":
             st.info("PC13: Teléfono 7")
@@ -494,8 +574,10 @@ elif seleccion_envio == "Envío 1":
             elif tanque in ["CIP", "I"]: res = "19"
             elif tanque in ["Libre 2", "O"]: res = "20"
             elif tanque in ["Libre 1", "P"]: res = "21"
-            else: res = "Manguera"
-            st.success(f"PC 22 Teléfono a emplear: {res}")
+            else: res = "No asignado"
+            
+            if res != "No asignado": st.success(f"PC 22 Teléfono a emplear: {res}")
+            else: st.warning("No hay teléfono asignado para esta combinación.")
             
         elif bomba == "Bomba 5":
             st.info("PC13: Teléfono 6")
@@ -503,8 +585,10 @@ elif seleccion_envio == "Envío 1":
             elif tanque in ["N", "P"]: res = "19"
             elif tanque == "Q": res = "20"
             elif tanque == "CIP": res = "21"
-            else: res = "Manguera"
-            st.success(f"PC 22 Teléfono a emplear: {res}")
+            else: res = "No asignado"
+            
+            if res != "No asignado": st.success(f"PC 22 Teléfono a emplear: {res}")
+            else: st.warning("No hay teléfono asignado para esta combinación.")
             
         elif bomba == "Bomba 6":
             st.info("PC13: Teléfono 5")
@@ -512,8 +596,10 @@ elif seleccion_envio == "Envío 1":
             elif tanque == "O": res = "19"
             elif tanque == "I": res = "20"
             elif tanque == "N": res = "21"
-            else: res = "Manguera"
-            st.success(f"PC 22 Teléfono a emplear: {res}")
+            else: res = "No asignado"
+            
+            if res != "No asignado": st.success(f"PC 22 Teléfono a emplear: {res}")
+            else: st.warning("No hay teléfono asignado para esta combinación.")
 
     # --- ULTRA PASTEURIZADOR ---
     elif opcion == "12. Ultra pasteurizador":
@@ -529,16 +615,20 @@ elif seleccion_envio == "Envío 1":
             elif tanque == "K": res = "19"
             elif tanque == "Libre 1": res = "20"
             elif tanque == "Libre 2": res = "21"
-            else: res = "Manguera"
-            st.success(f"PC 22 Teléfono a emplear: {res}")
+            else: res = "No asignado"
+            
+            if res != "No asignado": st.success(f"PC 22 Teléfono a emplear: {res}")
+            else: st.warning("No hay teléfono asignado para esta combinación.")
             
         elif bomba == "Bomba 2":
             st.info("PC13: Teléfono 9")
             if tanque in ["A", "K", "Libre 1", "D"]: res = "B2"
             elif tanque in ["L", "Libre 2"]: res = "19"
             elif tanque in ["F", "CIP"]: res = "20"
-            else: res = "Manguera"
-            st.success(f"PC 22 Teléfono a emplear: {res}")
+            else: res = "No asignado"
+            
+            if res != "No asignado": st.success(f"PC 22 Teléfono a emplear: {res}")
+            else: st.warning("No hay teléfono asignado para esta combinación.")
             
         elif bomba == "Bomba 3":
             st.info("PC13: Teléfono 8")
@@ -546,8 +636,10 @@ elif seleccion_envio == "Envío 1":
             elif tanque == "Libre 1": res = "19"
             elif tanque in ["K", "N"]: res = "20"
             elif tanque in ["L", "I"]: res = "21"
-            else: res = "Manguera"
-            st.success(f"PC 22 Teléfono a emplear: {res}")
+            else: res = "No asignado"
+            
+            if res != "No asignado": st.success(f"PC 22 Teléfono a emplear: {res}")
+            else: st.warning("No hay teléfono asignado para esta combinación.")
             
         elif bomba == "Bomba 4":
             st.info("PC13: Teléfono 8")
@@ -555,8 +647,10 @@ elif seleccion_envio == "Envío 1":
             elif tanque in ["CIP", "I"]: res = "19"
             elif tanque in ["Libre 2", "O"]: res = "20"
             elif tanque in ["Libre 1", "P"]: res = "21"
-            else: res = "Manguera"
-            st.success(f"PC 22 Teléfono a emplear: {res}")
+            else: res = "No asignado"
+            
+            if res != "No asignado": st.success(f"PC 22 Teléfono a emplear: {res}")
+            else: st.warning("No hay teléfono asignado para esta combinación.")
             
         elif bomba == "Bomba 5":
             st.info("PC13: Teléfono 9")
@@ -564,8 +658,10 @@ elif seleccion_envio == "Envío 1":
             elif tanque in ["N", "P"]: res = "19"
             elif tanque == "Q": res = "20"
             elif tanque == "CIP": res = "21"
-            else: res = "Manguera"
-            st.success(f"PC 22 Teléfono a emplear: {res}")
+            else: res = "No asignado"
+            
+            if res != "No asignado": st.success(f"PC 22 Teléfono a emplear: {res}")
+            else: st.warning("No hay teléfono asignado para esta combinación.")
             
         elif bomba == "Bomba 6":
             st.info("PC13: Teléfono 10")
@@ -573,10 +669,12 @@ elif seleccion_envio == "Envío 1":
             elif tanque == "O": res = "19"
             elif tanque == "I": res = "20"
             elif tanque == "N": res = "21"
-            else: res = "Manguera"
-            st.success(f"PC 22 Teléfono a emplear: {res}")
+            else: res = "No asignado"
+            
+            if res != "No asignado": st.success(f"PC 22 Teléfono a emplear: {res}")
+            else: st.warning("No hay teléfono asignado para esta combinación.")
 
-    # --- BOMBA REPROCESO / TRASIEGO ---
+    # --- BOMBA REPROCESO / TRASIEGO (Única sección que sí emplea manguera) ---
     elif opcion == "13. Bomba reproceso / Trasiego":
         st.subheader("--- Bomba reproceso / Trasiego ---")
         tanque = st.selectbox("Seleccione el Tanque de Origen:", ["C", "D", "E", "N", "Otros tanques (Manguera)"])
@@ -606,8 +704,10 @@ elif seleccion_envio == "Envío 1":
             elif tanque == "K": res = "19"
             elif tanque == "Libre 1": res = "20"
             elif tanque == "libre 2": res = "21" 
-            else: res = "Manguera"
-            st.success(f"PC 22 Teléfono a emplear: {res}")
+            else: res = "No asignado"
+            
+            if res != "No asignado": st.success(f"PC 22 Teléfono a emplear: {res}")
+            else: st.warning("No hay teléfono asignado para esta combinación.")
             
         elif bomba == "BOMBA 2":
             st.info("PC13: Teléfono 6")
@@ -615,8 +715,10 @@ elif seleccion_envio == "Envío 1":
             if tanque in ["A", "K", "Libre 1", "D"]: res = "B2"
             elif tanque in ["L", "Libre 2"]: res = "19"
             elif tanque in ["F", "CIP"]: res = "20"
-            else: res = "Manguera"
-            st.success(f"PC 22 Teléfono a emplear: {res}")
+            else: res = "No asignado"
+            
+            if res != "No asignado": st.success(f"PC 22 Teléfono a emplear: {res}")
+            else: st.warning("No hay teléfono asignado para esta combinación.")
             
         elif bomba == "BOMBA 3":
             st.info("PC13: Teléfono 7")
@@ -624,8 +726,10 @@ elif seleccion_envio == "Envío 1":
             if tanque in ["Libre 1"]: res = "19"
             elif tanque in ["K", "N"]: res = "20"
             elif tanque in ["L", "I"]: res = "21"
-            else: res = "Manguera"
-            st.success(f"PC 22 Teléfono a emplear: {res}")
+            else: res = "No asignado"
+            
+            if res != "No asignado": st.success(f"PC 22 Teléfono a emplear: {res}")
+            else: st.warning("No hay teléfono asignado para esta combinación.")
             
         elif bomba == "BOMBA 4":
             st.info("PC13: Teléfono 7")
@@ -634,8 +738,10 @@ elif seleccion_envio == "Envío 1":
             elif tanque in ["CIP", "I"]: res = "19"
             elif tanque in ["Libre 2", "O"]: res = "20"
             elif tanque in ["Libre 1", "P"]: res = "21"
-            else: res = "Manguera"
-            st.success(f"PC 22 Teléfono a emplear: {res}")
+            else: res = "No asignado"
+            
+            if res != "No asignado": st.success(f"PC 22 Teléfono a emplear: {res}")
+            else: st.warning("No hay teléfono asignado para esta combinación.")
             
         elif bomba == "BOMBA 5":
             st.info("PC13: Teléfono 6")
@@ -644,8 +750,10 @@ elif seleccion_envio == "Envío 1":
             elif tanque in ["N", "P"]: res = "19"
             elif tanque == "Q": res = "20"
             elif tanque == "CIP": res = "21"
-            else: res = "Manguera"
-            st.success(f"PC 22 Teléfono a emplear: {res}")
+            else: res = "No asignado"
+            
+            if res != "No asignado": st.success(f"PC 22 Teléfono a emplear: {res}")
+            else: st.warning("No hay teléfono asignado para esta combinación.")
             
         elif bomba == "BOMBA 6":
             st.info("PC13: Teléfono 5")
@@ -654,8 +762,10 @@ elif seleccion_envio == "Envío 1":
             elif tanque == "O": res = "19"
             elif tanque == "I": res = "20"
             elif tanque == "N": res = "21"
-            else: res = "Manguera"
-            st.success(f"PC 22 Teléfono a emplear: {res}")
+            else: res = "No asignado"
+            
+            if res != "No asignado": st.success(f"PC 22 Teléfono a emplear: {res}")
+            else: st.warning("No hay teléfono asignado para esta combinación.")
 
     # --- CIP FUNDIDORES ---
     elif opcion == "15. CIP FUNDIDORES":
