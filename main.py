@@ -9,7 +9,7 @@ st.set_page_config(page_title="Sistema de Envío", page_icon="🥛")
 st.title("🚜 SISTEMA DE ENVÍO")
 
 # Menú lateral
-seleccion_envio = st.sidebar.radio("MENÚ PRINCIPAL", ["Envío 1", "Inventario Envío 1", "Envío 2", "Salir"])
+seleccion_envio = st.sidebar.radio("MENÚ PRINCIPAL", ["Envío 1", "Inventario Envío 1", "Envío 2", "Inventario Envío 2", "Salir"])
 
 if seleccion_envio == "Salir":
     st.write("¡Buen turno! Recarga la página para volver a empezar.")
@@ -1185,6 +1185,49 @@ elif seleccion_envio == "Envío 2":
         elif sector_uht == "Marmita": res_uht = "13"
         elif sector_uht == "FMM1": res_uht = "14"
         st.success(f"Teléfono CIP UHT a emplear: {res_uht}")
+
+elif seleccion_envio == "Inventario Envío 2":
+    st.header("📦 Inventario Envío 2")
+    st.write("A continuación se detalla la cantidad de accesorios por placa para este envío:")
+    
+    # --- DATOS DE LA PLACA PC23 ---
+    st.subheader("🔹 Placa PC23")
+    inventario_pc23 = {
+        "Descripción del Accesorio": [
+            "Teléfono B7", "Teléfono B8", "Teléfono B9", 
+            "Teléfono B10", "Teléfono B7-B8", "Teléfono B9-B10"
+        ],
+        "Cantidad (Unidades)": [1, 1, 1, 1, 1, 1]
+    }
+    st.table(inventario_pc23)
+    total_pc23 = sum(inventario_pc23["Cantidad (Unidades)"])
+    st.markdown(f"**Subtotal Placa PC23:** {total_pc23} unidades")
+    
+    st.markdown("---")
+    
+    # --- DATOS DE LA PLACA PC12 ---
+    st.subheader("🔹 Placa PC12")
+    inventario_pc12 = {
+        "Descripción del Accesorio": [
+            "Teléfono 1", "Teléfono 2", "Teléfono 3", "Teléfono 4", 
+            "Teléfono 5", "Teléfono 6", "Teléfono 7", "Teléfono 8", 
+            "Teléfono 9", "Teléfono 10", "Teléfono 11", "Teléfono 12", 
+            "Teléfono 13", "Teléfono 14"
+        ],
+        "Cantidad (Unidades)": [4, 1, 1, 1, 2, 2, 2, 1, 1, 1, 1, 1, 1, 1]
+    }
+    st.table(inventario_pc12)
+    total_pc12 = sum(inventario_pc12["Cantidad (Unidades)"])
+    st.markdown(f"**Subtotal Placa PC12:** {total_pc12} unidades")
+    
+    st.markdown("---")
+    
+    # --- TOTAL GENERAL DEL ENVÍO ---
+    total_general_envio2 = total_pc23 + total_pc12
+    
+    col1, col2 = st.columns([2, 1])
+    with col2:
+        st.metric(label="📊 CANTIDAD TOTAL ENVÍO 2", value=f"{total_general_envio2} uds")
     
         st.warning("Configurando lógica de flujo para este equipo...")
         # (Aquí se repite la lógica de bombas/tanques exacta de tu archivo)
